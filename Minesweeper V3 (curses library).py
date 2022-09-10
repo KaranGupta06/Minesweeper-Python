@@ -125,17 +125,17 @@ while cont == "y": #main loop
     x = y = 0
 
     init()
+    spawn()
 
     while True: #game loop
-
-        spawn()
+        
         get_input()
-
+        spawn()
+        
         if sorted([i for i in range(l*b) if overlay[i]!=0]) == mines:
             stdscr.addstr(b+3,l//2+1,"VICTORY",curses.color_pair(2)|curses.A_BOLD)
             break
         elif len([i for i in range(l*b) if overlay[i] == 0 and i in mines]):
-            curses.beep()
             stdscr.addstr(b+3,l//2+1,"GAME OVER",curses.color_pair(11)|curses.A_BOLD)
             break
 
